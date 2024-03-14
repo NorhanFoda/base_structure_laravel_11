@@ -1,0 +1,23 @@
+server {
+    listen  80  default_server;
+    server_name ${SERVER_NAME};
+
+    return  301 https://$host:${SSL_PORT}$request_uri;
+}
+
+server {
+    listen  443 ssl default_server;
+    server_name ${SERVER_NAME};
+
+    # SSL certificates
+    ssl_certificate     /etc/nginx/certs/laravel_11_server.pem;
+    ssl_certificate_key /etc/nginx/certs/laravel_11_server.key;
+
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass  http://${APP_SERVICE};
+    }
+}
