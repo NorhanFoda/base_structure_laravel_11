@@ -279,9 +279,9 @@ class MakeRepositoryCommand extends Command
             $routesContent = preg_replace('/^(use .*?;)/m', "$1\n$useStatement", $routesContent, 1);
         }
         $routeName = Str::plural(Str::lower($this->modelName));
-        $route = "Route::apiResource('$routeName', ${controllerName}::class);";
+        $route = "Route::apiResource('$routeName', $controllerName::class);";
         if ($this->apiMiddleware) { 
-            $route = "Route::apiResource('$routeName', ${controllerName}::class)->middleware('{$this->apiMiddleware}');";
+            $route = "Route::apiResource('$routeName', $controllerName::class)->middleware('{$this->apiMiddleware}');";
         } 
         $routesContent .= "\n$route\n";
         File::put($routesFilePath, $routesContent);
