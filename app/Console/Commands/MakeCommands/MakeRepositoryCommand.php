@@ -184,8 +184,8 @@ class MakeRepositoryCommand extends Command
         $template = file_get_contents(base_path('stubs/vue/pages/index-page.stub'));
         $templateClass = $this->replaceTemplateContent($template);
         $directory = $this->getVueResourcesPath();
-        $this->makeDirectory($directory . Str::lower($modelName));
-        $filePath = $directory . Str::lower($modelName);
+        $this->makeDirectory($directory . Str::plural(Str::lower($modelName)));
+        $filePath = $directory . Str::plural(Str::lower($modelName));
         $fileName = $modelName . 'Index' . '.vue';
         return $this->saveTemplateCopy($filePath, $fileName, $templateClass);
     }
@@ -195,8 +195,8 @@ class MakeRepositoryCommand extends Command
         $template = file_get_contents(base_path('stubs/vue/pages/form-page.stub'));
         $templateClass = $this->replaceTemplateContent($template);
         $directory = $this->getVueResourcesPath();
-        $this->makeDirectory($directory . Str::lower($modelName));
-        $filePath = $directory . Str::lower($modelName);
+        $this->makeDirectory($directory . Str::plural(Str::lower($modelName)));
+        $filePath = $directory . Str::plural(Str::lower($modelName));
         $fileName = $modelName . 'Form' . '.vue';
         return $this->saveTemplateCopy($filePath, $fileName, $templateClass);
     }
@@ -206,8 +206,8 @@ class MakeRepositoryCommand extends Command
         $template = file_get_contents(base_path('stubs/vue/pages/view-page.stub'));
         $templateClass = $this->replaceTemplateContent($template);
         $directory = $this->getVueResourcesPath();
-        $this->makeDirectory($directory . Str::lower($modelName));
-        $filePath = $directory . Str::lower($modelName);
+        $this->makeDirectory($directory . Str::plural(Str::lower($modelName)));
+        $filePath = $directory . Str::plural(Str::lower($modelName));
         $fileName = $modelName . 'View' . '.vue';
         return $this->saveTemplateCopy($filePath, $fileName, $templateClass);
     }
@@ -321,7 +321,7 @@ class MakeRepositoryCommand extends Command
                 module: "$modelName",
             },
         },
-        ,{
+        {
             path: "/$routeName/create",
             name: "$routeName.create",
             component: () => import("$formPath"),
@@ -332,7 +332,7 @@ class MakeRepositoryCommand extends Command
                 module: "$modelName",
             },
         },
-        ,{
+        {
             path: "/$routeName/edit/:id?",
             name: "$routeName.edit",
             component: () => import("$formPath"),
@@ -343,7 +343,7 @@ class MakeRepositoryCommand extends Command
                 module: "$modelName",
             },
         },
-        ,{
+        {
             path: "/$routeName/view/:id?",
             name: "$routeName.show",
             component: () => import("$viewPath"),

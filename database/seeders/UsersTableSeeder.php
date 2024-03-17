@@ -34,12 +34,12 @@ class UsersTableSeeder extends Seeder
         }
         $user->assignRole($role);
 
-        // for ($i = 20001; $i <= 30000; $i++) {
+        // for ($i = 10002; $i <= 20000; $i++) {
         //     $user = User::create([
         //         'name' => 'user '.$i,
-        //         'identification' => rand(100000000000000, 199999999999999),
+        //         // 'identification' => rand(100000000000000, 199999999999999),
         //         'email' => 'user_'.$i.'@user.com',
-        //         'phone' => rand(1000000000, 19999999999),
+        //         // 'phone' => rand(1000000000, 19999999999),
         //         'password' => Hash::make('123456')
                 
         //     ]);

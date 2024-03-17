@@ -19,7 +19,7 @@ let filters = ref({
     keyword: '',
     embed: 'relation:colummns',
     includeEmptyRelations: false,
-    columns: 'id,name'
+    columns: 'id'
 });
 
 async function getResources(page = 1) {
