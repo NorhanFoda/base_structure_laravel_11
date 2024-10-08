@@ -38,6 +38,11 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" async>
     <!-- fonts -->
+    @vite(['resources/app/app.js',
+           'resources/sass/app.scss',
+           'public/UI/assets/css/style.css',
+           'public/UI/assets/css/colors.css',
+           'public/UI/assets/css/custom.css'])
 </head>
 
 
@@ -45,7 +50,7 @@
 <!-- Add dir="rtl" class="rtl"-->
 <body {{app()->getLocale()}} class='main-body {{app()->getLocale() == 'ar' ? 'rtl':''}}'
       dir="{{app()->getLocale() == 'ar' ? 'rtl':'ltr'}}">
-
+      
       <div id="app"></div>
 </body>
 
